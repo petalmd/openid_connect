@@ -4,7 +4,7 @@ module OpenIDConnect
     attr_optional :id_token
 
     def initialize(attributes = {})
-      attributes.merge!(access_token: attributes['id_token'])
+      attributes.merge!(access_token: attributes['id_token']) unless attributes[:access_token]
       super
       @token_type = :bearer
     end
